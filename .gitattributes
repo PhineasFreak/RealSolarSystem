@@ -1,2 +1,36 @@
-# Auto detect text files and perform LF normalization
+# ================================================================================
+# Auto detect text files and perform LF normalization.
+# ================================================================================
+
 * text=auto
+
+# ================================================================================
+# Plain text
+# ================================================================================
+
+*.cfg   text    eol=lf
+*.CFG   text    eol=lf
+*.md    text    eol=lf
+*.MD    text    eol=lf
+*.txt   text    eol=lf
+*.TXT   text    eol=lf
+
+# ================================================================================
+# Images & textures
+# ================================================================================
+
+*.dds   binary
+*.DDS   binary
+*.png   binary
+*.PNG   binary
+
+# ================================================================================
+# Ignore list
+# ================================================================================
+
+.gitattributes  export-ignore
+.gitignore      export-ignore
+LICENSE.md      export-ignore
+README.md       export-ignore
+GameData        export-ignore
+Source          export-ignore
