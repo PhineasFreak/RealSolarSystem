@@ -88,8 +88,10 @@ Credits:
 
 License:
 
-RSS is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0) license.
+RealSolarSystem-Core and RealSolarSystem-Textures are licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0) license.
 
 You should have received a copy of the license along with this work. If not, visit the official Creative Commons web page: https://creativecommons.org/licenses/by-nc-sa/4.0
 
 Note that the above license does not cover mod packs. Redistributing this work via a mod pack is not allowed.
+
+RealSolarSystem-Visuals is licensed under an All Rights Reserved (ARR) license. You may not redistribute or re-use these assets without express permission from the author.

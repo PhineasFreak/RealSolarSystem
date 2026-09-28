@@ -89,7 +89,7 @@ RealSolarSystem-Core & RealSolarSystem-Textures are licensed under a **Creative 
 
 Note that the above license does not cover mod packs. Redistributing this work via a mod pack is not allowed.
 
-RealSolarSystem-Visuals is licensed under an **All Rights Reserved (ARR)** license.
+RealSolarSystem-Visuals is licensed under an **All Rights Reserved (ARR)** license. You may not redistribute or re-use these assets without express permission from the author.
 
 ***
 
