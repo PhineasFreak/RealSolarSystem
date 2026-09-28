@@ -30,7 +30,7 @@ Starting with a **clean** KSP installation:
 
 The final directory structure should look like this:
 
-`
+```
 GameData
 └───┬──── ModuleManager.dll
     ├──── 000_Harmony
@@ -48,7 +48,7 @@ GameData
     ├──── (Scatterer)
     ├──── (StockScattererConfigs)
     └──── Squad
-`
+```
 
 10. Launch KSP and enjoy the new solar system!
 
