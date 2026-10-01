@@ -1,21 +1,22 @@
 =================================================================================
-RealSolarSystem 1.12.5-1 for KSP 1.12.5 (2026-09-28)
+RealSolarSystem 1.12.5-1 for KSP 1.12.5 (2026-10-01)
 =================================================================================
 
 Changes:
 
     • Warning: this is potentially a save-breaking update.
-    • Complete restructure of the directory tree.
+    • Complete restructure of the directory tree for easier management.
     • All mod compatibility patches now reside under the (existing) "Compatibility" directory.
-    • All RSS-specific patches now reside under the "Config" directory.
-    • All RSS-specific patches are now prefixed with "RSS_".
-    • All Kopernicus body cache files are now managed by Kopernicus itself to avoid bugs when upgrading RSS versions.
+    • All RSS-specific patches now reside under the "Config" directory and are now prefixed with "RSS_".
+    • All Kopernicus CB cache files are now managed by Kopernicus itself to avoid bugs when upgrading either Kopernicus and/or RSS versions.
     • Added some Soviet deep space tracking stations to CommNet (ported from Realism Overhaul).
-    • Added fallback PQS materials wherever applicable (not really necessary but good to have).
+    • Added fallback PQS materials wherever applicable.
     • Added missing normal and height maps to Dione, Enceladus, Iapetus, Mimas, Rhea, Tethys and Triton.
     • Added the dwarf planet Eris (2003 UB313).
+    • Added the Saturnian moon Hyperion (Saturn VII).
     • Added support for Tilt'Em. All bodies should now have proper axial tilt without requiring the use of Principia!
     • Added support for BurstPQS for higher quality terrain and improved performance.
+    • Added support for the new Kopernicus asteroid classes. Asteroid sizes will now range between 3 meters (class A) and 5 km (class I). Requires Kopernicus v249+.
     • Renamed the KSCSwitcher patch from "LaunchSites" to "KSCSwitcher".
     • Renamed the NIMBY patch from "RecoveryBeacons" to "NIMBY".
     • Removed all stock PQS mods from all bodies (simplifies removal of various useless PQS mods).
@@ -25,37 +26,39 @@ Changes:
     • Removed support for the "PlanetShine" mod (use https://github.com/LGhassen/Deferred).
     • Removed support for the "SigmaBinary" mod (not working in the latest KSP versions).
     • Removed the stock launch sites introduced with KSP version 1.12 ("Glacier Lake", "Cove", "Mahi Mahi", "Crater").
+    • Updated the ScaledSpace textures to use the DDS BC7 encoding instead of DDS BC3 to fix a multitude of visual artifacts.
     • Updated the CB configuration files to make use of the newer Kopernicus "OnDemand" system for dynamically managing ScaledSpace textures (this also allows the Earth and Moon textures to be unloaded when not used and save memory).
     • Updated the Pluto and Triton rotation periods to use hard-coded values (RSS correctly now enforces the use of gravitational parameters for all bodies).
     • Updated the Earth and Titan oceans to use custom settings for better visuals.
     • Updated the MSFN CommNet stations to match the later, Apollo Network, configuration.
-    • Updated the Saturn rings to use the new Kopernicus ring shader and replaced the ring texture with a much higher resolution one.
+    • Updated the Saturn rings to use the new Kopernicus ring shader and replaced the ring texture with a higher resolution one.
 
 Bug Fixes:
 
     • Fixed the Sun light parameters for compatibility with the newer Kopernicus versions (this also allows for custom brightness curves versus distance from the Sun).
     • Fixed the CommNet part patcher being unable handle parts with more that one "ModuleDataTransmitter" modules.
-    • Fixed the Venus, Earth, Mars and Titan AFG parameters for smoother edges.
     • Fixed the overexposed specular reflections of all gas giants.
     • Fixed the "TextureReplacer" mod compatibility patch to edit the existing node instead of creating a new one.
     • Fixed the hard-coded description localization for Oberon and Umbriel.
+    • Fixed the custom hard-coded PQS terrain quality settings overwriting the user-selected terrain presets.
     • Fixed the PQS/ScaledSpace transition altitudes of many bodies.
+    • Fixed the brightness matching between PQS and SS transition for all bodies.
     • Fixed the oblate feature of all gas giants not working at all.
     • Fixed the grass color and texture tiling of the KSC buildings (this does not apply if KSCSwitcher is installed).
-    • Fixed the incorrect, relative to Pluto, osculating elements of Charon.
+    • Fixed the initial rotation of the Earth not being zero and affecting the local noon time.
+    • Fixed the Venus, Earth, Mars and Titan AFG parameters for smoother edges.
     • Fixed the missing AFG nodes of Neptune, Triton and Pluto.
+    • Fixed the incorrect, relative to Pluto, osculating elements of Charon.
     • Fixed the orbital inclinations of Deimos, Phobos, Io, Europa, Ganymede and Callisto being relative to the ecliptic instead of the equator of the parent body.
-    • Fixed the alignment of many bodies being mirrored horizontally.
+    • Fixed the incorrect horizontal mirroring and prime meridian of many bodies.
     • Fixed the Io, Europa, Enceladus and Triton color maps using false colors.
     • Fixed the Enceladus biome map alignment issues and added an extra "Canyons" biome.
     • Fixed the wrong inner and outer radii of the Saturn rings.
-    • Removed a duplicate gravitational parameter in the Titan CB configuration file overriding the proper one.
+    • Fixed Venus using the Eve CB template and unnecessarily adding oceans.
+    • Fixed a duplicate gravitational parameter in the Titan CB configuration file overriding the proper one.
     • Fixed some minor typos in the EN-US language pack.
-    • Fixed the incorrect horizontal mirroring and prime meridian of many bodies.
-    • Tweaked the brightness matching between PQS and SS transition for all bodies.
-    • Tweaked the initial rotation of the Moon (no Principia).
-    • Reverted all PQS material nodes to use stock KSP terrain detail textures instead of the RSS-supplied ones (workaround until they are fixed).
-    • Removed the custom PQS terrain quality settings from all bodies (possibly overwriting the user-selected terrain presets).
+    • Tweaked the initial rotation of the Moon when Principia is not installed.
+    • Reverted all PQS material nodes to use stock KSP terrain detail textures instead of the RSS-supplied ones.
 
 Known Issues:
 
@@ -64,6 +67,7 @@ Known Issues:
 
 Other Notes:
 
+    • This update is built upon RealSolarSystem v20.1.3.0 and RSS-Textures v18.6.1.0.
     • The new texture pack only comes in 16k resolution. Due to updates to the Kopernicus on-demand loading system the performance impact should be much less though.
-    • Any vessels inbound for any of the moons of Mars, Jupiter, Saturn, Uranus, along with the Moon and Charon, and NOT in orbit around them will have incorrect trajectories due to the change of their relative inclinations and/or orbital elements. Make sure to either delay the arrival of or put in stable orbits said vessels before updating. 
-    • If TiltEm is installed then vessels on orbit will not be at the correct orbital inclinations.
+    • Any vessels inbound for any of the moons of Mars, Jupiter, Saturn, Uranus or Charon, and NOT in orbit around them will have incorrect trajectories due to the change of their relative inclinations and/or orbital elements. Make sure to either delay the arrival of or put in stable orbits said vessels before updating.
+    • If TiltEm is installed then vessels in orbit around all bodies will not be at the correct orbital inclinations. This is more obvious in the case of Uranus and Pluto whose orbital inclinations are larger than 90 degrees.
