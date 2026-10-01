@@ -4,15 +4,14 @@ using HarmonyLib;
 namespace RealSolarSystem.Harmony
 {
     [HarmonyPatch(typeof(Vessel))]
+
     internal class PatchVessel
     {
         [HarmonyPostfix]
         [HarmonyPatch("Start")]
         internal static void Postfix_Start(Vessel __instance)
         {
-            if (__instance.vesselType == VesselType.SpaceObject ||
-                (__instance.vesselType != VesselType.Debris &&
-                VesselUtilities.VesselHasPartName("PotatoRoid", __instance)))
+            if (__instance.vesselType == VesselType.SpaceObject || (__instance.vesselType != VesselType.Debris && VesselUtilities.VesselHasPartName("PotatoRoid", __instance)))
             {
                 ClobberVesselRanges(__instance.vesselRanges.orbit);
                 ClobberVesselRanges(__instance.vesselRanges.subOrbital);

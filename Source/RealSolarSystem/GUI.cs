@@ -6,18 +6,23 @@ using UnityEngine;
 
 namespace RealSolarSystem
 {
-    [KSPAddon(KSPAddon.Startup.Flight, false)]
+    [KSPAddon (KSPAddon.Startup.Flight, false)]
+
     public class RealSolarSystemEditor : MonoBehaviour
     {
-        static Rect windowPosition = new Rect(64, 64, 320, 640);
+        internal static bool ForceVGPEOff = false;
+
+        static Rect windowPosition = new Rect (64.0f, 64.0f, 320.0f, 640.0f);
+
         static GUIStyle windowStyle = null;
 
-        private bool _GUIOpen = false;
-        private double _dtCounter = 0;
+        private bool GUIOpen = false;
 
-        private Vector2 _scrollPos;
+        private double dtCounter = 0.0d;
 
-        private List<CameraWrapper> _cams = null;
+        private Vector2 scrollPos;
+
+        private List<CameraWrapper> cams = null;
 
         private string _sMinDist = null;
         private string _sMinDiv = null;
@@ -52,19 +57,20 @@ namespace RealSolarSystem
         private PQSMod_VertexHeightNoiseVertHeight _pModHeightNoise = null;
         private PQSMod_VertexHeightMap _pModRssHMap = null;
 
-        public void Update()
+        public void Update ()
         {
-            if (_dtCounter < 5)
+            if (dtCounter < 5.0d)
             {
-                _dtCounter += TimeWarp.fixedDeltaTime;
+                dtCounter += TimeWarp.fixedDeltaTime;
+
                 return;
             }
 
-            if (_cams == null)
+            if (cams == null)
             {
-                _cams = new List<CameraWrapper>();
+                cams = new List<CameraWrapper>();
 
-                Camera[] cameras = Camera.allCameras;
+                Camera [] cameras = Camera.allCameras;
 
                 foreach (Camera cam in cameras)
                 {
@@ -74,115 +80,128 @@ namespace RealSolarSystem
                         {
                             camName = cam.name,
 
-                            depth = cam.depth.ToString()
+                            depth = cam.depth.ToString ()
                         };
 
-                        thisCam.farClipPlane += cam.farClipPlane.ToString();
-                        thisCam.nearClipPlane += cam.nearClipPlane.ToString();
+                        thisCam.farClipPlane += cam.farClipPlane.ToString ();
+                        thisCam.nearClipPlane += cam.nearClipPlane.ToString ();
 
-                        _cams.Add(thisCam);
+                        cams.Add (thisCam);
                     }
                     catch (Exception exceptionStack)
                     {
-                        Debug.Log($"[RealSolarSystem] Exception getting camera {cam.name}\n{exceptionStack}");
+                        Debug.Log ("[RealSolarSystem]: Exception getting camera " + cam.name + "\n" + exceptionStack);
                     }
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.G) && Input.GetKey(KeyCode.LeftAlt))
+            if (Input.GetKeyDown (KeyCode.G) && Input.GetKey (KeyCode.LeftAlt))
             {
-                _GUIOpen = !_GUIOpen;
+                GUIOpen = !GUIOpen;
             }
 
-            if (_GUIOpen && Input.GetKeyDown(KeyCode.R) && Input.GetKey(KeyCode.LeftAlt))
+            if (GUIOpen && Input.GetKeyDown (KeyCode.R) && Input.GetKey (KeyCode.LeftAlt))
             {
-                FlightGlobals.currentMainBody?.pqsController?.StartUpSphere();
+                FlightGlobals.currentMainBody?.pqsController?.StartUpSphere ();
             }
         }
 
-        public void OnGUI()
+        public void OnGUI ()
         {
-            if (_GUIOpen)
+            if (GUIOpen)
             {
                 if (HighLogic.LoadedSceneIsFlight && FlightGlobals.ActiveVessel != null)
-                    windowPosition = GUILayout.Window(69105, windowPosition, ShowGUI, "RealSolarSystem Parameters", windowStyle);
+                {
+                    windowPosition = GUILayout.Window (69105, windowPosition, ShowGUI, "RealSolarSystem Parameters", windowStyle);
+                }
             }
         }
 
-        public void Start()
+        public void Start ()
         {
-            windowStyle = new GUIStyle(HighLogic.Skin.window);
+            windowStyle = new GUIStyle (HighLogic.Skin.window);
+
             windowStyle.stretchHeight = true;
         }
 
-        private void ShowGUI(int windowID)
+        private void ShowGUI (int windowID)
         {
-            GUILayout.BeginVertical();
+            GUILayout.BeginVertical ();
 
-            _scrollPos = GUILayout.BeginScrollView(_scrollPos);
+            scrollPos = GUILayout.BeginScrollView (scrollPos);
 
-            GUILayout.Label("RSSRunwayFix");
+            GUILayout.Label("Vessel Ground Position Enhancer");
 
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("collidersDisabled: ");
-            GUILayout.Label(RSSRunwayFix.Instance.collidersDisabled.ToString(), GUILayout.ExpandWidth(false));
+            GUILayout.BeginHorizontal ();
+            ForceVGPEOff = GUILayout.Toggle (ForceVGPEOff, "Force off");
+            GUILayout.EndHorizontal ();
+
+            GUILayout.Label ("--------------");
+            GUILayout.Label ("RSS Runway Fixer");
+
+            GUILayout.BeginHorizontal ();
+            GUILayout.Label ("collidersDisabled: ");
+            GUILayout.Label (RunwayFixer.Instance.collidersDisabled.ToString (), GUILayout.ExpandWidth (false));
+            GUILayout.EndHorizontal ();
+
+            GUILayout.BeginHorizontal ();
+            GUILayout.Label ("isOnRunway: ");
+            GUILayout.Label (RunwayFixer.Instance.isOnRunway.ToString (), GUILayout.ExpandWidth (false));
+            GUILayout.EndHorizontal ();
+
+            GUILayout.BeginHorizontal ();
+            GUILayout.Label ("hold: ");
+            GUILayout.Label (RunwayFixer.Instance.hold.ToString (), GUILayout.ExpandWidth (false));
+            GUILayout.EndHorizontal ();
+
+            GUILayout.BeginHorizontal ();
+            GUILayout.Label ("lastHitCollider: ");
+            GUILayout.Label (RunwayFixer.Instance.lastHitColliderName, GUILayout.ExpandWidth (false));
             GUILayout.EndHorizontal();
 
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("isOnRunway: ");
-            GUILayout.Label(RSSRunwayFix.Instance.isOnRunway.ToString(), GUILayout.ExpandWidth(false));
-            GUILayout.EndHorizontal();
-
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("hold: ");
-            GUILayout.Label(RSSRunwayFix.Instance.hold.ToString(), GUILayout.ExpandWidth(false));
-            GUILayout.EndHorizontal();
-
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("lastHitCollider: ");
-            GUILayout.Label(RSSRunwayFix.Instance.lastHitColliderName, GUILayout.ExpandWidth(false));
-            GUILayout.EndHorizontal();
-
-            if (_cams != null)
+            if (cams != null)
             {
-                GUILayout.Label("--------------");
-                GUILayout.BeginHorizontal();
-                GUILayout.Label("CAMERA EDITOR");
-                GUILayout.EndHorizontal();
+                GUILayout.Label ("--------------");
+                GUILayout.BeginHorizontal ();
+                GUILayout.Label ("CAMERA EDITOR");
+                GUILayout.EndHorizontal ();
 
-                foreach (CameraWrapper cam in _cams)
+                foreach (CameraWrapper cam in cams)
                 {
-                    GUILayout.BeginHorizontal();
-                    GUILayout.Label("Camera: " + cam.camName);
-                    GUILayout.EndHorizontal();
+                    GUILayout.BeginHorizontal ();
+                    GUILayout.Label ("Camera: " + cam.camName);
+                    GUILayout.EndHorizontal ();
 
-                    GUILayout.BeginHorizontal();
-                    GUILayout.Label("Depth");
-                    cam.depth = GUILayout.TextField(cam.depth, 10);
-                    GUILayout.EndHorizontal();
+                    GUILayout.BeginHorizontal ();
+                    GUILayout.Label ("Depth");
+                    cam.depth = GUILayout.TextField (cam.depth, 10);
+                    GUILayout.EndHorizontal ();
 
-                    GUILayout.BeginHorizontal();
-                    GUILayout.Label("Far Clip");
-                    cam.farClipPlane = GUILayout.TextField(cam.farClipPlane, 10);
-                    GUILayout.EndHorizontal();
+                    GUILayout.BeginHorizontal ();
+                    GUILayout.Label ("Far Clip");
+                    cam.farClipPlane = GUILayout.TextField (cam.farClipPlane, 10);
+                    GUILayout.EndHorizontal ();
 
-                    GUILayout.BeginHorizontal();
-                    GUILayout.Label("Near Clip");
-                    cam.nearClipPlane = GUILayout.TextField(cam.nearClipPlane, 10);
-                    GUILayout.EndHorizontal();
+                    GUILayout.BeginHorizontal ();
+                    GUILayout.Label ("Near Clip");
+                    cam.nearClipPlane = GUILayout.TextField (cam.nearClipPlane, 10);
+                    GUILayout.EndHorizontal ();
 
-                    if (GUILayout.Button("Apply to " + cam.camName))
+                    if (GUILayout.Button ("Apply to " + cam.camName))
                     {
-                        cam.Apply();
+                        cam.Apply ();
                     }
                 }
             }
 
             PQS pqs = FlightGlobals.currentMainBody.pqsController;
+
             if (_modList == null)
             {
                 _modList = new List<PQSMod>();
+
                 GetChildMods(pqs.gameObject, _modList);
+
                 _pModDefine = (PQSMod_VertexDefineCoastLine)_modList.FirstOrDefault(t => t is PQSMod_VertexDefineCoastLine);
                 _pModEnhance = (PQSMod_QuadEnhanceCoast)_modList.FirstOrDefault(t => t is PQSMod_QuadEnhanceCoast);
                 _pModRssDefine = (PQSMod_VertexDefineCoastSmooth)_modList.FirstOrDefault(t => t is PQSMod_VertexDefineCoastSmooth);
@@ -191,6 +210,7 @@ namespace RealSolarSystem
             }
 
             PQSCache.PQSSpherePreset preset = PQSCache.PresetList?.GetPreset(pqs.gameObject.name);
+
             if (preset != null)
             {
                 if (_sMinDist == null)
@@ -240,6 +260,7 @@ namespace RealSolarSystem
                 GUILayout.Label("minDistance: ");
                 GUILayout.EndHorizontal();
                 _sMinDist = GUILayout.TextField(_sMinDist);
+
                 if (double.TryParse(_sMinDist, out double minDist))
                 {
                     preset.minDistance = minDist;
@@ -248,7 +269,9 @@ namespace RealSolarSystem
                 GUILayout.BeginHorizontal();
                 GUILayout.Label("minSubdivision: ");
                 GUILayout.EndHorizontal();
+
                 _sMinDiv = GUILayout.TextField(_sMinDiv);
+
                 if (int.TryParse(_sMinDiv, out int minDiv))
                 {
                     preset.minSubdivision = minDiv;
@@ -257,13 +280,16 @@ namespace RealSolarSystem
                 GUILayout.BeginHorizontal();
                 GUILayout.Label("maxSubdivision: ");
                 GUILayout.EndHorizontal();
+
                 _sMaxDiv = GUILayout.TextField(_sMaxDiv);
+
                 if (int.TryParse(_sMaxDiv, out int maxDiv))
                 {
                     preset.maxSubdivision = maxDiv;
                 }
 
                 GUILayout.Label("-----------------");
+
                 foreach (PQSMod pqsmod in _modList)
                 {
                     GUILayout.BeginHorizontal();
@@ -279,7 +305,9 @@ namespace RealSolarSystem
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("Coastline depthOffset: ");
                     GUILayout.EndHorizontal();
+
                     _sDepthOffset = GUILayout.TextField(_sDepthOffset);
+
                     if (double.TryParse(_sDepthOffset, out double depthOffset))
                     {
                         _pModDefine.depthOffset = depthOffset;
@@ -288,7 +316,9 @@ namespace RealSolarSystem
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("Coastline oceanRadiusOffset: ");
                     GUILayout.EndHorizontal();
+
                     _sOceanRadiusOffset = GUILayout.TextField(_sOceanRadiusOffset);
+
                     if (double.TryParse(_sOceanRadiusOffset, out double oceanRadiusOffset))
                     {
                         _pModDefine.oceanRadiusOffset = oceanRadiusOffset;
@@ -297,7 +327,9 @@ namespace RealSolarSystem
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("Coastline order: ");
                     GUILayout.EndHorizontal();
+
                     _sCoastOrder = GUILayout.TextField(_sCoastOrder);
+
                     if (int.TryParse(_sCoastOrder, out int coastOrder))
                     {
                         _pModDefine.order = coastOrder;
@@ -312,7 +344,9 @@ namespace RealSolarSystem
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("Enhance oceanFactor: ");
                     GUILayout.EndHorizontal();
+
                     _sOceanFactor = GUILayout.TextField(_sOceanFactor);
+
                     if (double.TryParse(_sOceanFactor, out double oceanfactor))
                     {
                         _pModEnhance.oceanFactor = oceanfactor;
@@ -321,7 +355,9 @@ namespace RealSolarSystem
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("Enhance coastFactor: ");
                     GUILayout.EndHorizontal();
+
                     _sCoastFactor = GUILayout.TextField(_sCoastFactor);
+
                     if (double.TryParse(_sCoastFactor, out double coastFactor))
                     {
                         _pModEnhance.coastFactor = coastFactor;
@@ -330,7 +366,9 @@ namespace RealSolarSystem
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("Enhance coastLessThan: ");
                     GUILayout.EndHorizontal();
+
                     _sCoastLessThan = GUILayout.TextField(_sCoastLessThan);
+
                     if (double.TryParse(_sCoastLessThan, out double lt))
                     {
                         _pModEnhance.coastLessThan = lt;
@@ -339,7 +377,9 @@ namespace RealSolarSystem
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("Enhance order: ");
                     GUILayout.EndHorizontal();
+
                     _sEnhanceOrder = GUILayout.TextField(_sEnhanceOrder);
+
                     if (int.TryParse(_sEnhanceOrder, out int order))
                     {
                         _pModEnhance.order = order;
@@ -354,7 +394,9 @@ namespace RealSolarSystem
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("minHeightOffset: ");
                     GUILayout.EndHorizontal();
+
                     _sMinHeightOffset = GUILayout.TextField(_sMinHeightOffset);
+
                     if (double.TryParse(_sMinHeightOffset, out double minHeightOffset))
                     {
                         _pModRssDefine.minHeightOffset = minHeightOffset;
@@ -363,7 +405,9 @@ namespace RealSolarSystem
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("maxHeightOffset: ");
                     GUILayout.EndHorizontal();
+
                     _sMaxHeightOffset = GUILayout.TextField(_sMaxHeightOffset);
+
                     if (double.TryParse(_sMaxHeightOffset, out double maxHeightOffset))
                     {
                         _pModRssDefine.maxHeightOffset = maxHeightOffset;
@@ -373,6 +417,7 @@ namespace RealSolarSystem
                     GUILayout.Label("slopeScale: ");
                     GUILayout.EndHorizontal();
                     _sSlopeScale = GUILayout.TextField(_sSlopeScale);
+
                     if (double.TryParse(_sSlopeScale, out double val))
                     {
                         _pModRssDefine.slopeScale = val;
@@ -381,7 +426,9 @@ namespace RealSolarSystem
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("Mod order: ");
                     GUILayout.EndHorizontal();
+
                     _sRssDefineOrder = GUILayout.TextField(_sRssDefineOrder);
+
                     if (int.TryParse(_sRssDefineOrder, out int order))
                     {
                         _pModRssDefine.order = order;
@@ -396,7 +443,9 @@ namespace RealSolarSystem
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("heightStart: ");
                     GUILayout.EndHorizontal();
+
                     _sHeightStart = GUILayout.TextField(_sHeightStart);
+
                     if (double.TryParse(_sHeightStart, out double val))
                     {
                         _pModHeightNoise.heightStart = (float)val;
@@ -405,7 +454,9 @@ namespace RealSolarSystem
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("maxHeightOffset: ");
                     GUILayout.EndHorizontal();
+
                     _sHeightEnd = GUILayout.TextField(_sHeightEnd);
+
                     if (double.TryParse(_sHeightEnd, out val))
                     {
                         _pModHeightNoise.heightEnd = (float)val;
@@ -414,7 +465,9 @@ namespace RealSolarSystem
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("deformity: ");
                     GUILayout.EndHorizontal();
+
                     _sDeformity = GUILayout.TextField(_sDeformity);
+
                     if (double.TryParse(_sDeformity, out val))
                     {
                         _pModHeightNoise.deformity = (float)val;
@@ -423,7 +476,9 @@ namespace RealSolarSystem
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("frequency: ");
                     GUILayout.EndHorizontal();
+
                     _sFrequency = GUILayout.TextField(_sFrequency);
+
                     if (double.TryParse(_sFrequency, out val))
                     {
                         _pModHeightNoise.frequency = (float)val;
@@ -432,16 +487,20 @@ namespace RealSolarSystem
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("octaves: ");
                     GUILayout.EndHorizontal();
+
                     _sOctaves = GUILayout.TextField(_sOctaves);
+
                     if (int.TryParse(_sOctaves, out int val2))
                     {
                         _pModHeightNoise.octaves = val2;
                     }
 
                     GUILayout.BeginHorizontal();
-                    GUILayout.Label("persistance: ");
+                    GUILayout.Label("persistence: ");
                     GUILayout.EndHorizontal();
+
                     _sPersistance = GUILayout.TextField(_sPersistance);
+
                     if (double.TryParse(_sPersistance, out val))
                     {
                         _pModHeightNoise.persistance = (float)val;
@@ -450,7 +509,9 @@ namespace RealSolarSystem
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("Mod order: ");
                     GUILayout.EndHorizontal();
+
                     _sHeightNoiseOrder = GUILayout.TextField(_sHeightNoiseOrder);
+
                     if (int.TryParse(_sHeightNoiseOrder, out int order))
                     {
                         _pModHeightNoise.order = order;
@@ -458,33 +519,39 @@ namespace RealSolarSystem
                 }
             }
 
-            GUILayout.EndScrollView();
-            GUILayout.EndVertical();
-            GUI.DragWindow();
+            GUILayout.EndScrollView ();
+
+            GUILayout.EndVertical ();
+
+            GUI.DragWindow ();
         }
 
-        private void GetChildMods(GameObject obj, List<PQSMod> mods)
+        private void GetChildMods (GameObject obj, List<PQSMod> mods)
         {
             IEnumerator enumerator = obj.transform.GetEnumerator();
+
             try
             {
-                while (enumerator.MoveNext())
+                while (enumerator.MoveNext ())
                 {
                     Transform current = (Transform)enumerator.Current;
+
                     if (!(current == transform) && !(current.GetComponent<PQS>() != null))
                     {
                         PQSMod[] components = current.GetComponents<PQSMod>();
+
                         if (components != null)
                         {
-                            mods.AddRange(components);
-                            GetChildMods(current.gameObject, mods);
+                            mods.AddRange (components);
+
+                            GetChildMods (current.gameObject, mods);
                         }
                     }
                 }
             }
             finally
             {
-                (enumerator as IDisposable)?.Dispose();
+                (enumerator as IDisposable)?.Dispose ();
             }
         }
     }

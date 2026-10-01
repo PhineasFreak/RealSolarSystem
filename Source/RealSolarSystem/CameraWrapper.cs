@@ -23,13 +23,19 @@ namespace RealSolarSystem
                     if (camName.Equals(cam.name))
                     {
                         if (float.TryParse(depth, out float ftmp))
+                        {
                             cam.depth = ftmp;
+                        }
 
                         if (float.TryParse(farClipPlane, out ftmp))
+                        {
                             cam.farClipPlane = ftmp;
+                        }
 
                         if (float.TryParse(nearClipPlane, out ftmp))
+                        {
                             cam.nearClipPlane = ftmp;
+                        }
 
                         depth = cam.depth.ToString();
                         nearClipPlane = cam.nearClipPlane.ToString();
@@ -41,12 +47,12 @@ namespace RealSolarSystem
 
                 if (notFound)
                 {
-                    Debug.Log($"[RealSolarSystem] Could not find camera {camName} when applying settings!");
+                    Debug.Log (string.Format("[RealSolarSystem]: Could not find camera {0} when applying settings!", camName));
                 }
             }
             catch (Exception exceptionStack)
             {
-                Debug.Log($"[RealSolarSystem] Error applying to camera {camName}: exception {exceptionStack.Message}");
+                Debug.Log (string.Format("[RealSolarSystem]: Error applying to camera {0}: exception {1}", camName, exceptionStack.Message));
             }
         }
     }

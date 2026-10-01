@@ -1,4 +1,4 @@
-﻿/* 
+﻿/*
  * This code is adapted from KopernicusExpansion-Continued
  * Available from https://github.com/StollD/KopernicusExpansion-Continued
  */
@@ -33,6 +33,23 @@ namespace RealSolarSystem
         {
             get { return Mod.slopeScale; }
             set { Mod.slopeScale = value; }
+        }
+
+        // Target half-width of the transition, in vertex spacings. Positive enables adaptive mode,
+        // which sizes the ramp from the height map gradient and ignores slopeScale.
+        [ParserTarget("coastSpacings")]
+        public NumericParser<double> coastSpacings
+        {
+            get { return Mod.coastSpacings; }
+            set { Mod.coastSpacings = value; }
+        }
+
+        // Central difference half-width used to measure that gradient, in height map texels.
+        [ParserTarget("gradientStencil")]
+        public NumericParser<double> gradientStencil
+        {
+            get { return Mod.gradientStencil; }
+            set { Mod.gradientStencil = value; }
         }
     }
 }
