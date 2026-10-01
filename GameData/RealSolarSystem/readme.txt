@@ -1,4 +1,4 @@
-﻿====================================================================================================
+====================================================================================================
        ________      ______       ______
       /   __   \    /  __  \     /  __  \
      /   /  |  |   /  /  |_|    /  /  |_|
@@ -10,12 +10,12 @@
 
 ====================================================================================================
 
-Real Solar System is an add-on for Kerbal Space Program (KSP) that converts the Kerbol System into the (Real) Solar System.
+Real Solar System (RSS) is an add-on for Kerbal Space Program (KSP) that converts the Kerbol System into the (Real) Solar System.
 
 Dependencies:
 
     1. CustomBarnKit (by sarbian). See the GitHub repository for details, license and source: https://github.com/sarbian/CustomBarnKit
-    2. Ferram Aerospace Research by ferram4. See the GitHub repository for details, license and source: https://github.com/KSPModStewards/Ferram-Aerospace-Research
+    2. Ferram Aerospace Research (by ferram4 and dkavolis). See the GitHub repository for details, license and source: https://github.com/KSPModStewards/Ferram-Aerospace-Research
     2. KSCSwitcher (by regex, NathanKell and jbengtson). See the GitHub repository for details, license and source: https://github.com/KSP-RO/KSCSwitcher
     2. Kopernicus (by teknoman, bryce, Thomas P. and NathanKell). See the GitHub repository for details, license and source: https://github.com/Kopernicus/Kopernicus
     3. Module Manager (by sarbian, swamp_ig and ialdabaoth). See the GitHub repository for details, license and source: https://github.com/sarbian/ModuleManager
@@ -32,9 +32,8 @@ Installation:
     6. Download the latest version of RealSolarSystem (RSS). Both "RealSolarSystem-Core" and "RealSolarSystem-Textures" are required.
     7. Optionally download the "RealSolarSystem-Visuals" to add clouds and other atmosphere effects. This pack requires EnvironmentalVisualEnhancements and Scatterer!
     8. Although it is not a hard dependency it is highly recommended to install TiltEm for proper axial tilt.
-    9. Extract the contents of the "RealSolarSystem-Core", "RealSolarSystem-Textures" and, optionally, the "RealSolarSystem-Visuals" .zip files and move the resulting folders inside the GameData folder.
-
-    The final basic file and folder structure should look like this:
+    9. Extract the contents of the "RealSolarSystem-Core", "RealSolarSystem-Textures" (both archives) and, optionally, the "RealSolarSystem-Visuals" .zip files.
+    6. Merge the resulting "GameData" folder with the existing KSP GameData folder. The final directory structure should look like this:
 
     GameData
     └───┬──── ModuleManager.dll
@@ -54,37 +53,37 @@ Installation:
         ├──── (StockScattererConfigs)
         └──── Squad
 
-    10. Launch KSP and enjoy the new solar system!
+    11. Launch KSP and enjoy the new solar system!
 
 Suggested mods:
 
     RealSolarSystem ships with configurations for many other mods:
 
-    - BetterTimeWarp by MrHappyFace and LinuxGuruGamer. See KSP forum thread for details, license and source: https://forum.kerbalspaceprogram.com/index.php?showtopic=154935
-    - Custom Asteroids by Starstrider42. See KSP forum thread for details, license and source: https://forum.kerbalspaceprogram.com/index.php?showtopic=72785
-    - KerbalWind by DaMichel and RCrockford. See KSP forum thread for details, license and source: https://forum.kerbalspaceprogram.com/index.php?showtopic=195587
-    - Not In My BackYard by magico13 and LinuxGuruGamer. See KSP forum thread for details, license and source: https://forum.kerbalspaceprogram.com/index.php?showtopic=178484
-    - Rational Resources by JadeOfMaar. See KSP forum thread for details, license and source: https://forum.kerbalspaceprogram.com/index.php?showtopic=184875
-    - RealAntennas by DRVeyl and the KSP-RO Team. See GitHub repository for details, license and source: https://github.com/KSP-RO/RealAntennas
-    - SCANsat by DMagic and the KSPModStewards Team. See GitHub repository for details, license and source: https://github.com/KSPModStewards/SCANsat
-    - TextureReplacer by shaw. See KSP forum thread for details, license and source: https://forum.kerbalspaceprogram.com/index.php?showtopic=96851
-    - TiltEm by Dagger and BallisticFox. See GitHub repository for details, license and source: https://github.com/ballisticfox/TiltEm-Continued
+    • BetterTimeWarp (by MrHappyFace and LinuxGuruGamer). See the KSP forum thread for details, license and source: https://forum.kerbalspaceprogram.com/index.php?showtopic=154935
+    • Custom Asteroids (by Starstrider42). See the KSP forum thread for details, license and source: https://forum.kerbalspaceprogram.com/index.php?showtopic=72785
+    • KerbalWind (by DaMichel and RCrockford). See the KSP forum thread for details, license and source: https://forum.kerbalspaceprogram.com/index.php?showtopic=195587
+    • Not In My BackYard (by magico13 and LinuxGuruGamer). See the KSP forum thread for details, license and source: https://forum.kerbalspaceprogram.com/index.php?showtopic=178484
+    • Rational Resources (by JadeOfMaar). See the KSP forum thread for details, license and source: https://forum.kerbalspaceprogram.com/index.php?showtopic=184875
+    • RealAntennas (by DRVeyl and the KSP-RO Team). See the GitHub repository for details, license and source: https://github.com/KSP-RO/RealAntennas
+    • SCANsat (by DMagic and the KSPModStewards Team). See the GitHub repository for details, license and source: https://github.com/KSPModStewards/SCANsat
+    • TextureReplacer (by shaw). See the GitHub repository for details, license and source: https://github.com/ducakar/TextureReplacer
+    • TiltEm (by Dagger and BallisticFox). See the GitHub repository for details, license and source: https://github.com/ballisticfox/TiltEm-Continued
 
 Credits:
 
     Textures:
 
-    - Mercury textures by BallisticFox (redistributed with permission)
-    - Ceres and Vesta by USGS
-    - Jupiter textures by Planetary Society
-    - Saturn moons by CICLOPS
-    - Pluto and Charon by supersean08
-    - Eris textures by Solar System Scope
-    - Special thanks to Björn Jónsson and John van Vliet (Celestia Motherlode) for their texture work on many bodies.
+    • Mercury textures by BallisticFox (redistributed with permission)
+    • Ceres and Vesta by USGS
+    • Jupiter textures by Planetary Society
+    • Saturn moons by CICLOPS
+    • Pluto and Charon by supersean08
+    • Eris textures by Solar System Scope
+    • Special thanks to Björn Jónsson and John van Vliet (Celestia Motherlode) for their texture work on many bodies.
 
     Programming:
 
-    - RealSolarSystem by NathanKell and KSP-RO contributors
+    • RealSolarSystem by NathanKell and KSP-RO contributors
 
 License:
 

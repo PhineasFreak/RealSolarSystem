@@ -23,12 +23,11 @@ Starting with a **clean** KSP installation:
 3. Download the latest version of **KSCSwitcher**.
 4. Download the latest version of **CustomBarnKit**.
 5. Install the mods according to the instructions provided by each one.
-6. Download the latest version of **RealSolarSystem (RSS)**. Both **"RealSolarSystem-Core"** and **"RealSolarSystem-Textures"** are required.
+6. Download the latest version of **RealSolarSystem**. Both **"RealSolarSystem-Core"** and **"RealSolarSystem-Textures"** are required.
 7. Optionally download the **"RealSolarSystem-Visuals"** to add clouds and other atmosphere effects. This pack requires **EnvironmentalVisualEnhancements** and **Scatterer**!
 8. Although it is not a hard dependency it is highly recommended to install **TiltEm** for proper axial tilt.
-9. Extract the contents of the **"RealSolarSystem-Core"**, **"RealSolarSystem-Textures"** and, optionally, the **"RealSolarSystem-Visuals"** .zip files and merge the resulting GameData folders with the existing KSP GameData folder.
-
-The final directory structure should look like this:
+9. Extract the contents of the **"RealSolarSystem-Core"**, **"RealSolarSystem-Textures"** and, optionally, the **"RealSolarSystem-Visuals"** .zip files.
+10. Merge the resulting **GameData** folders with the existing KSP GameData folder. The final directory structure should look like this:
 
 ```
 GameData
@@ -54,18 +53,16 @@ GameData
 
 ## Suggested Mods
 
-RealSolarSystem can be enhanced with many other mods:
-
-- **BetterTimeWarp** by **MrHappyFace** and **LinuxGuruGamer**. Customize your time warping rates. See the **[KSP forum thread][RSS:BetterTimeWarp]** for details, license and source.
-- **Custom Asteroids** by **Starstrider42**. Better asteroid generation and new types. See the **[KSP forum thread][RSS:CustomAsteroids]** for details, license and source.
-- **KerbalWind** by **DaMichel** and **RCrockford**. Your ships will now have to contend with various wind strengths and directions. See the **[KSP forum thread][RSS:KerbalWind]** for details, license and source.
-- **Not In My BackYard** by **magico13** and **LinuxGuruGamer**. Ship recovery can now only be done in pre-defined sites. See the **[KSP forum thread][RSS:NIMBY]** for details, license and source.
-- **Principia** by **eggrobin** and **pleroy**. Add N-body simulation to all solar system bodies and ships. See the **[GitHub repository][RSS:Principia]** for details, license and source.
-- **Rational Resources** by **JadeOfMaar**. Improved resource distribution for all solar system bodies. See the **[KSP forum thread][RSS:RationalResources]** for details, license and source.
-- **RealAntennas** by **DRVeyl** and the **KSP-RO Team**. Communications now depend on the physical parameters of the antenna and not on pre-defined distance values. See the **[GitHub repository][RSS:RealAntennas]** for details, license and source.
-- **SCANsat** by **DMagic** and the **KSPModStewards Team**. Create maps of the solar system bodies surfaces. See the **[GitHub repository][RSS:SCANSAT]** for details, license and source.
-- **TextureReplacer** by **shaw**. Add or modify the default KSP texture assets. See the **[KSP forum thread][RSS:TextureReplacer]** for details, license and source.
-- **TiltEm** by **Dagger** and **BallisticFox**. Adds proper axial tilt for all solar system bodies. See the **[GitHub repository][RSS:TiltEm]** for details, license and source.
+- **BetterTimeWarp** (by **MrHappyFace** and **LinuxGuruGamer**). Enables custom time warp rates. See the **[KSP forum thread][RSS:BetterTimeWarp]** for details, license and source.
+- **Custom Asteroids** (by **Starstrider42**). Better asteroid generation and new types. See the **[KSP forum thread][RSS:CustomAsteroids]** for details, license and source.
+- **KerbalWind** (by **DaMichel** and **RCrockford**). Your ships will now have to contend with various wind strengths and directions. See the **[KSP forum thread][RSS:KerbalWind]** for details, license and source.
+- **Not In My BackYard** (by **magico13** and **LinuxGuruGamer**). Ship recovery can now only be done in pre-defined sites. See the **[KSP forum thread][RSS:NIMBY]** for details, license and source.
+- **Principia** (by **eggrobin** and **pleroy**). Adds N-body simulation to all solar system bodies and ships. See the **[GitHub repository][RSS:Principia]** for details, license and source.
+- **Rational Resources** (by **JadeOfMaar**). Improves resource distribution for all solar system bodies. See the **[KSP forum thread][RSS:RationalResources]** for details, license and source.
+- **RealAntennas** (by **DRVeyl** and the **KSP-RO Team**). Communications now depend on the physical parameters of the antenna and not on pre-defined distance values. See the **[GitHub repository][RSS:RealAntennas]** for details, license and source.
+- **SCANsat** (by **DMagic** and the **KSPModStewards Team**). Creates maps of the solar system bodies surfaces. See the **[GitHub repository][RSS:SCANSAT]** for details, license and source.
+- **TextureReplacer** (by **shaw**). Allows replacement of many in-game textures. See the **[KSP forum thread][RSS:TextureReplacer]** for details, license and source.
+- **TiltEm** (by **Dagger** and **BallisticFox**). Adds proper axial tilt for all solar system bodies. See the **[GitHub repository][RSS:TiltEm]** for details, license and source.
 
 ## Credits
 
@@ -85,7 +82,9 @@ RealSolarSystem can be enhanced with many other mods:
 
 ## License
 
-RealSolarSystem-Core & RealSolarSystem-Textures are licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0)** license. You should have received a copy of the license along with this work. If not, visit the **[official Creative Commons web page][RSS:license]**.
+RealSolarSystem-Core & RealSolarSystem-Textures are licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0)** license.
+
+You should have received a copy of the license along with this work. If not, visit the **[official Creative Commons web page][RSS:license]**.
 
 Note that the above license does not cover mod packs. Redistributing this work via a mod pack is not allowed.
 
