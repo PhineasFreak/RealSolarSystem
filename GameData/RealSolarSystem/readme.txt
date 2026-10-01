@@ -57,8 +57,6 @@ Installation:
 
 Suggested mods:
 
-    RealSolarSystem ships with configurations for many other mods:
-
     • BetterTimeWarp (by MrHappyFace and LinuxGuruGamer). See the KSP forum thread for details, license and source: https://forum.kerbalspaceprogram.com/index.php?showtopic=154935
     • Custom Asteroids (by Starstrider42). See the KSP forum thread for details, license and source: https://forum.kerbalspaceprogram.com/index.php?showtopic=72785
     • KerbalWind (by DaMichel and RCrockford). See the KSP forum thread for details, license and source: https://forum.kerbalspaceprogram.com/index.php?showtopic=195587
@@ -73,13 +71,13 @@ Credits:
 
     Textures:
 
-    • Mercury textures by BallisticFox (redistributed with permission)
+    • Mercury by BallisticFox (redistributed with permission)
     • Ceres and Vesta by USGS
-    • Jupiter textures by Planetary Society
+    • Jupiter by Planetary Society
     • Saturn moons by CICLOPS
     • Pluto and Charon by supersean08
-    • Eris textures by Solar System Scope
-    • Special thanks to Björn Jónsson and John van Vliet (Celestia Motherlode) for their texture work on many bodies.
+    • Eris by Solar System Scope
+    • Special thanks to Björn Jónsson and John van Vliet (Celestia Motherlode) for their work on many bodies.
 
     Programming:
 

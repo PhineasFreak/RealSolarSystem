@@ -7,12 +7,12 @@
 
 ## Dependencies
 
-1. **BurstPQS** by **Phantomical**. See the **[GitHub repository][RSS:BurstPQS]** for detail, license and source.
-2. **CustomBarnKit** by **sarbian**. See the **[GitHub repository][RSS:CBK]** for details, license and source.
-3. **Ferram Aerospace Research** by **ferram4** and **dkavolis**. See the **[GitHub repository][RSS:FAR]** for details, license and source.
-4. **KSCSwitcher** by **regex**, **NathanKell** and **jbengtson**. See the **[GitHub repository][RSS:KSCSwitcher]** for details, license and source.
-5. **Kopernicus** by **teknoman**, **bryce**, **Thomas P.** and **NathanKell**. See the **[GitHub repository][RSS:Kopernicus]** for details, license and source.
-6. **Module Manager** by **sarbian**, **swamp_ig** and **ialdabaoth**). See the **[GitHub repository][RSS:ModuleManager]** for details, license and source.
+1. **BurstPQS** (by **Phantomical**). See the **[GitHub repository][RSS:BurstPQS]** for detail, license and source.
+2. **CustomBarnKit** (by **sarbian**). See the **[GitHub repository][RSS:CBK]** for details, license and source.
+3. **Ferram Aerospace Research** (by **ferram4** and **dkavolis**.) See the **[GitHub repository][RSS:FAR]** for details, license and source.
+4. **KSCSwitcher** (by **regex**, **NathanKell** and **jbengtson**). See the **[GitHub repository][RSS:KSCSwitcher]** for details, license and source.
+5. **Kopernicus** (by **teknoman**, **bryce**, **Thomas P.** and **NathanKell**). See the **[GitHub repository][RSS:Kopernicus]** for details, license and source.
+6. **Module Manager** (by **sarbian**, **swamp_ig** and **ialdabaoth**). See the **[GitHub repository][RSS:ModuleManager]** for details, license and source.
 
 ## Installation
 
@@ -68,13 +68,13 @@ GameData
 
 ### Textures:
 
-- Mercury textures by **BallisticFox** (redistributed with permission)
+- Mercury by **BallisticFox** (redistributed with permission)
 - Ceres and Vesta by **USGS**
-- Jupiter textures by the **Planetary Society**
+- Jupiter by the **Planetary Society**
 - Saturn moons by **CICLOPS**
 - Pluto and Charon by **supersean08**
-- Eris textures by **Solar System Scope**
-- Special thanks to **Björn Jónsson** and **John van Vliet** (Celestia Motherlode) for their texture work on many bodies.
+- Eris by **Solar System Scope**
+- Special thanks to **Björn Jónsson** and **John van Vliet** (Celestia Motherlode) for their work on many other bodies.
 
 ### Programming:
 
