@@ -229,6 +229,17 @@ Titan
 	}
 }
 
+Hyperion
+{
+	gas giant = false
+	FinalFrontier
+	{
+		ribbon path = RealSolarSystem/PluginData/Ribbons
+		ribbon group = Hyperion
+		base prestige = 6700
+	}
+}
+
 Iapetus
 {
 	gas giant = false
@@ -236,7 +247,7 @@ Iapetus
 	{
 		ribbon path = RealSolarSystem/PluginData/Ribbons
 		ribbon group = Iapetus
-		base prestige = 6700
+		base prestige = 6800
 	}
 }
 
@@ -358,5 +369,16 @@ Eris
 		ribbon path = RealSolarSystem/PluginData/Ribbons
 		ribbon group = Eris
 		base prestige = 10000
+	}
+}
+
+Sun
+{
+	gas giant = false
+	FinalFrontier
+	{
+		ribbon path = RealSolarSystem/PluginData/Ribbons
+		ribbon group = Sun
+		base prestige = 20000
 	}
 }
