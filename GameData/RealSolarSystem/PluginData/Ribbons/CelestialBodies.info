@@ -361,6 +361,50 @@ Charon
 	}
 }
 
+Hydra
+{
+	gas giant = false
+	FinalFrontier
+	{
+		ribbon path = RealSolarSystem/PluginData/Ribbons
+		ribbon group = Hydra
+		base prestige = 9200
+	}
+}
+
+Kerberos
+{
+	gas giant = false
+	FinalFrontier
+	{
+		ribbon path = RealSolarSystem/PluginData/Ribbons
+		ribbon group = Kerberos
+		base prestige = 9300
+	}
+}
+
+Nix
+{
+	gas giant = false
+	FinalFrontier
+	{
+		ribbon path = RealSolarSystem/PluginData/Ribbons
+		ribbon group = Nix
+		base prestige = 9400
+	}
+}
+
+Styx
+{
+	gas giant = false
+	FinalFrontier
+	{
+		ribbon path = RealSolarSystem/PluginData/Ribbons
+		ribbon group = Styx
+		base prestige = 9500
+	}
+}
+
 Eris
 {
 	gas giant = false
