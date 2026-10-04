@@ -1,4 +1,27 @@
 =================================================================================
+RealSolarSystem 1.12.5-2 for KSP 1.12.5 (2026-10-04)
+=================================================================================
+
+Changes:
+
+    • Added the Neptunian moon Proteus (Neptune VIII).
+    • Added the Plutonian moons Styx (Pluto II), Nix (Pluto III), Kerberos (Pluto IV) and Hydra (Pluto V).
+    • Added support for the Mitchell-Netravali height map PQSMod for smoother terrain.
+    • Updated the mean radii and standard gravitational parameters of all bodies.
+    • Updated the radii of Phobos, Deimos and Hyperion to more closely match the expected per-axis dimensions.
+
+Bug Fixes:
+
+    • Fixed the wrong right ascension and declination values of Ganymede.
+    • Fixed the wrong standard gravitational parameter of Eris.
+
+Known Issues:
+
+    • Gas giants do not cast proper shadows at orbiting satellites and vessels.
+    • The KSC monolith anomaly cannot be removed (it is part of the space center mesh).
+    • The Sun has the stock yellow appearance instead of being white.
+
+=================================================================================
 RealSolarSystem 1.12.5-1 for KSP 1.12.5 (2026-10-01)
 =================================================================================
 
