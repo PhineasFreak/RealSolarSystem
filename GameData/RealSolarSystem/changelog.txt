@@ -1,5 +1,5 @@
 =================================================================================
-RealSolarSystem 1.12.5-2 for KSP 1.12.5 (2026-10-04)
+RealSolarSystem 1.12.5-2 for KSP 1.12.5 (2026-10-10)
 =================================================================================
 
 Changes:
@@ -7,6 +7,7 @@ Changes:
     • Added the Neptunian moon Proteus (Neptune VIII).
     • Added the Plutonian moons Styx (Pluto II), Nix (Pluto III), Kerberos (Pluto IV) and Hydra (Pluto V).
     • Added support for the Mitchell-Netravali height map PQSMod for smoother terrain.
+    • Added initial support for Parallax Continued (only terrain textures for now).
     • Updated the mean radii and standard gravitational parameters of all bodies.
     • Updated the radii of Phobos, Deimos and Hyperion to more closely match the expected per-axis dimensions.
 
@@ -14,6 +15,7 @@ Bug Fixes:
 
     • Fixed the wrong right ascension and declination values of Ganymede.
     • Fixed the wrong standard gravitational parameter of Eris.
+    • Fixed the wrong orientation of the Dione height map.
 
 Known Issues:
 
